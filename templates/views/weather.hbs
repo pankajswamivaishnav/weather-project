@@ -1,0 +1,127 @@
+<html lang="en">
+
+<head>
+    {{>headerlink}}
+</head>
+
+<body>
+    <div class="container-fluid main_menu">
+        <div class="row">
+            <div class="col-md-10 col-12 max-auto">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/"><i class="far fa-snowflake"></i> VaishnavWeather <i
+                            class="far fa-snowflake"></i></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" style="height:40px" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/about">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- main header -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 max-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter City name" autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+                {{!-- temp information --}}
+
+             <div class="tempInformation">
+              <div class="top_layer">
+                <p id="day">sunday</p>
+                <p id="date">10-07-2022</p>
+              </div>
+              <div class="main_layer">
+                <p id="city_name">Get Output Here</p>
+                <div class="middle_layer data_hide">
+                    <p id="temp"><span id="temp_real_val">0</span><sup>o</sup>c</p>
+                    <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                </div>
+              </div>
+           </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+
+        const getCurrentDay = ()=>{
+        let weekday = new Array(7);
+        weekday[0] = 'Sunday';
+        weekday[1] = 'Monday';
+        weekday[2] = 'Tuesday';
+        weekday[3] = 'Wednesday';
+        weekday[4] = 'Thursday';
+        weekday[5] = 'Friday';
+        weekday[6] =  'saturday';
+
+        let currentTime = new Date();
+        days = weekday[currentTime.getDay()];
+        let day = document.getElementById('day');
+
+        day.innerText = days;
+        };
+        getCurrentDay();
+
+        //get  current date
+
+        const getCurrentTime = () =>{
+         var months = [
+         "Dec",
+         "Jan",
+         "Feb",
+         "Mar",
+         "Apr",
+         "May",
+         "Jun",
+         "Jul",
+         "Aug",
+         "Sep",
+         "Oct",
+         "Nov",
+        
+         ];
+         
+        var now = new Date();
+        {{!-- var hours = now.getHours(); --}}
+        {{!-- var mins  = now.getMinutes(); --}}
+
+        var month = months[now.getMonth()+1];
+        var dates = now.getDate();
+
+        let date = document.getElementById('date');
+
+        date.innerText = `${month} ${dates}`;
+       };
+     getCurrentTime();
+     
+       
+    </script>
+</body>
+
+</html>

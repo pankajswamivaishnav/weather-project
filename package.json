@@ -1,0 +1,15 @@
+{
+  "name": "wheather-project",
+  "version": "1.0.0",
+  "description": "pankaj project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pankaj swami vaishnav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "hbs": "^4.2.0"
+  }
+}
